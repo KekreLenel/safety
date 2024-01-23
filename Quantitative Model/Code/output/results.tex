@@ -1,0 +1,397 @@
+\documentclass[12pt]{article}
+\usepackage[hmargin=1.4in,vmargin=1.4in]{geometry}
+\bibliographystyle{ecta}
+\usepackage[pdftex]{graphicx}
+\usepackage[update,prepend,outdir=../output/figures/]{epstopdf}
+\usepackage{subfigure}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+%\usepackage{mathbfol}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\usepackage{enumerate}
+\usepackage[onehalfspacing]{setspace}
+\usepackage{multirow}
+\usepackage{cancel}
+% \usepackage{epstopdf}
+\usepackage{natbib}
+\usepackage{bm}                                                                                                                                                                                                                    
+%\usepackage{chngcntr}
+\usepackage{apptools}
+\usepackage[multiple]{footmisc}
+\usepackage[hidelinks,hyperfootnotes=false]{hyperref}
+\usepackage{fancyhdr}
+\usepackage{footnote}
+
+\usepackage{afterpage}
+\usepackage{floatrow}
+\usepackage{array}
+\usepackage{xr}
+\usepackage{adjustbox}
+\usepackage{pdflscape}
+\usepackage{array}
+\externaldocument{\jobname_app}
+\makesavenoteenv{tabular}
+\makesavenoteenv{table}
+\usepackage{datetime}
+\bibliographystyle{ecta}
+\allowdisplaybreaks
+
+%\usepackage{mathtools}
+%\linespread{1.2}
+
+%\newtheorem{ass}{Assumption}
+\newenvironment{ass}[2][Assumption]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2}]}{\end{trivlist}}
+\newtheorem{conj}{Conjecture}
+\newtheorem{defn}{Definition}
+\newtheorem{prop}{Proposition}
+\newtheorem{cor}{Corollary}
+\newtheorem{lem}{Lemma}
+\newcommand{\tunderbrace}[1]{\underbrace{\textstyle#1}}
+\newcommand{\toverbrace}[1]{\overbrace{\textstyle#1}}
+\makeatletter
+\newcommand{\vast}{\bBigg@{3}}
+\newcommand{\Vast}{\bBigg@{4}}
+\makeatother
+
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}m{#1}}
+%\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\newdateformat{monthyeardate}{%
+  \monthname[\THEMONTH] \THEYEAR}
+
+\AtAppendix{\counterwithin{lem}{section} \counterwithin{defn}{section} \counterwithin{prop}{section} \counterwithin{cor}{section}}
+
+\newcolumntype{R}[2]{%
+    >{\adjustbox{angle=#1,lap=\width-(#2)}\bgroup}%
+    l%
+    <{\egroup}%
+}
+\newcommand*\rot{\multicolumn{1}{R{45}{1em}}}% no optional argument here, please!
+
+
+\begin{document}
+\section{Numerical solution: main text}
+
+\begin{table}[H]
+\centering
+\bgroup
+\def\arraystretch{1.25}
+\begin{tabular}{clcl} \hline
+\input{../output/tables/table_1.tex}
+\end{tabular}
+\egroup
+\renewcommand\thetable{1}
+\caption{externally set parameters}
+\label{tab:ext}
+\end{table}
+
+
+
+
+\begin{table}[H]
+\centering
+\bgroup
+\def\arraystretch{1.25}
+\begin{tabular}{clclcc} \hline
+\input{../output/tables/table_2.tex}
+\end{tabular}
+\egroup
+\renewcommand\thetable{2}
+\caption{targeted moments and calibrated parameters}
+\floatfoot{Notes: second moments are reported over quarterly frequency.  Data moments are estimated over Q1 1995 -- Q4 2019.  Model moments are computed by (i) simulating model for 20,000 quarters and discarding first 10,000 quarters; (ii) drawing 100 starting points from remaining 10,000 quarters; (iii) simulating 100 samples beginning from these starting points, with no disaster realizations in sample; (iv) computing moments for each sample and averaging across samples.}
+\label{tab:cal}
+\end{table}
+
+
+\vspace{40pt}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth,clip=true,trim=0 0 0 0]{../output/figures/fig_2}
+\renewcommand\thefigure{2}
+\caption{effects of increase in disaster probability}
+\floatfoot{Notes: impulse responses are average responses starting from 100 points drawn from ergodic distribution as described in note to Table \ref{tab:cal}.}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth,clip=true,trim=0 0 0 0]{../output/figures/fig_3}
+\renewcommand\thefigure{3}
+\caption{effects of increase in safety}
+\floatfoot{Notes: impulse responses are average responses starting from 100 points drawn from ergodic distribution as described in note to Table \ref{tab:cal}.}
+\end{figure}
+
+\begin{table}[H]
+\centering
+\bgroup
+\def\arraystretch{1.25}
+\begin{tabular}{l|cccc} \hline
+\input{../output/tables/table_3.tex}
+\end{tabular}
+\egroup
+\renewcommand\thetable{3}
+\caption{comovements in the international monetary system}
+\floatfoot{Notes: data moments estimated over 1995 - 2019.  Standard errors are given in parenthesis.  First two rows use monthly data and thus \cite{hh1980} standard errors with 4 lags to correct for overlapping observations.  Model moments are computed as described in note to Table \ref{tab:cal}.}
+\label{tab:comov}
+\end{table}
+
+\begin{table}[H]
+\centering
+\bgroup
+\def\arraystretch{1.25}
+\begin{tabular}{l|cccc} \hline
+\input{../output/tables/table_4.tex}
+\end{tabular}
+\egroup
+\renewcommand\thetable{4}
+\caption{additional second moments}
+\floatfoot{Notes: data moments are estimated over Q1 1995 -- Q4 2019.  Standard errors are given in parenthesis.  Model moments are computed as described in note to Table \ref{tab:cal}.}
+\label{tab:addmom}
+\end{table}
+
+\begin{table}[H]
+\centering
+\bgroup
+\def\arraystretch{1.25}
+\begin{tabular}{l|cccc} \hline
+\input{../output/tables/table_5.tex}
+\end{tabular}
+\egroup
+\renewcommand\thetable{5}
+\caption{output volatility}
+\floatfoot{Notes: data moments estimated over Q1 1995 - Q4 2019.  Model moments are computed as described in note to Table \ref{tab:cal}.}
+\label{tab:yvol}
+\end{table}
+
+\begin{table}[H]
+\centering
+\bgroup
+\def\arraystretch{1.25}
+\begin{tabular}{l|cccc} \hline
+\input{../output/tables/table_6.tex}
+\end{tabular}
+\egroup
+\renewcommand\thetable{6}
+\caption{U.S. net foreign asset volatility}
+\floatfoot{Notes: volatilities in data estimated over Q1 2006 - Q4 2019 since BEA IIP data is available quarterly only after that date; means are estimated using annual data over Q1 1995 - Q4 2019.  Model moments are computed as described in note to Table \ref{tab:cal}.}
+\label{tab:nfanxvol}
+\end{table}
+
+\begin{table}[H]
+\centering
+\bgroup
+\def\arraystretch{1.25}
+\begin{tabular}{l|ccc} \hline
+\input{../output/tables/table_7.tex}
+\end{tabular}
+\egroup
+\renewcommand\thetable{7}
+\caption{understanding U.S. external adjustment}
+\floatfoot{Notes: moments are computed as described in note to Table \ref{tab:cal}, but including disaster realizations.}
+\label{tab:extadj}
+\end{table}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth,clip=true,trim=0 0 0 0]{../output/figures/fig_4}
+\renewcommand\thefigure{4}
+\caption{simulation using observed $p$ and $\omega$ series}
+\floatfoot{Notes: $p$ is from \cite{bl2021} and $\omega$ is from \cite{duetal2018} (demeaned).  Both are scaled to match volatilities of $p$ and $\omega$ in model.  Given these shocks, figure depicts average paths starting from 100 points drawn from ergodic distribution as described in note to Table \ref{tab:cal}.}
+\label{fig:gr}
+\end{figure}
+
+\begin{table}[tb]
+\centering
+\bgroup
+\def\arraystretch{1.25}
+\begin{tabular}{l|C{21mm}C{18mm}C{19mm}} \hline
+& & \multicolumn{2}{c}{Model} \\ 
+& Data & Constant $i$ & Active Taylor \\ \hline
+\input{../output/tables/table_8.tex}
+\end{tabular}
+\egroup
+\renewcommand\thetable{8}
+\caption{effects of dollar swap lines}
+\floatfoot{Notes: data column are cumulative estimates from \cite{kl2023a} for March 19-20, 2020 announcements (Table 1 in that paper).  Model columns simulate a decrease in $\omega_t$ of $14bp$ starting from the average of the model's ergodic distribution.}
+\label{tab:swapline}
+\end{table}	
+
+\section{Numerical solution: appendix}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth,clip=true,trim=0 0 0 0]{../output/figures/fig_5}
+\renewcommand\thefigure{5}
+\caption{effects of increase in safety under alternative monetary policy rules}
+\floatfoot{Notes: impulse responses are average responses starting from 100 points drawn from ergodic distribution as described in note to Table \ref{tab:cal}.}
+\end{figure}
+
+\begin{table}[H]
+\centering
+\bgroup
+\def\arraystretch{1.25}
+\begin{tabular}{l|cccc} \hline
+\input{../output/tables/table_9.tex}
+\end{tabular}
+\egroup
+\renewcommand\thetable{9}
+\caption{comovements under alternative monetary policy rules}
+\floatfoot{Notes: moments are computed as described in note to Table \ref{tab:cal}.}
+\label{tab:comov}
+\end{table}
+
+\begin{table}[H]
+\centering
+\bgroup
+\def\arraystretch{1.25}
+\hspace*{-2cm}\begin{tabular}{l|ccccc} \hline
+\input{../output/tables/table_10.tex}
+\end{tabular}
+\egroup
+\renewcommand\thetable{10}
+\caption{portfolios and risk premium}
+\floatfoot{Notes: model moments are computed as described in note to Table 2.}
+\end{table}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth,clip=true,trim=0 0 0 0]{../output/figures/fig_6}
+\renewcommand\thefigure{6}
+\caption{simulation using observed $p$ and $\omega$ series}
+\floatfoot{Notes: see notes to Figure \ref{fig:gr}.}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth,clip=true,trim=0 0 0 0]{../output/figures/fig_7}
+\renewcommand\thefigure{7}
+\caption{simulation using observed $p$ and $\omega$ series}
+\floatfoot{Notes: see notes to Figure \ref{fig:gr}.}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=1.0\textwidth,clip=true,trim=0 0 0 0]{../output/figures/fig_10}
+\renewcommand\thefigure{9}
+\caption{effects of safety shock in model and data}
+\label{fig:safety_modelvsdata}
+\floatfoot{Notes: in data, impulse responses estimated as in Figure \ref{fig:rvaremp} except using quarterly data over Q1 1995 -- Q4 2019.  In model, innovation to $\omega_t$ equals estimated innovation in swapped G10/Tbill spread, multiplied by ratio of unconditional volatilities of $\omega_t$ in model to swapped G10/Tbill spread in data.}
+\end{figure}
+
+
+\pagebreak
+
+\begin{figure}[H]
+\centering
+\hspace*{-4cm}\includegraphics[width=1.5\textwidth,clip=true,trim=0 0 0 0]{../output/figures/fig_11}
+\renewcommand\thefigure{10}
+\caption{effects of increase in disaster probability - 1/2}
+\floatfoot{Notes: impulse responses are average responses starting from 100 points drawn from ergodic distribution as described in note to Table \ref{tab:cal}.}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\hspace*{-4cm}\includegraphics[width=1.5\textwidth,clip=true,trim=0 0 0 0]{../output/figures/fig_12}
+\renewcommand\thefigure{11}
+\caption{effects of increase in disaster probability - 2/2}
+\floatfoot{Notes: impulse responses are average responses starting from 100 points drawn from ergodic distribution as described in note to Table \ref{tab:cal}.}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\hspace*{-4cm}\includegraphics[width=1.5\textwidth,clip=true,trim=0 0 0 0]{../output/figures/fig_13}
+\renewcommand\thefigure{12}
+\caption{effects of disaster realization - 1/2}
+\floatfoot{Notes: impulse responses are average responses starting from 100 points drawn from ergodic distribution as described in note to Table \ref{tab:cal}.}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\hspace*{-4cm}\includegraphics[width=1.5\textwidth,clip=true,trim=0 0 0 0]{../output/figures/fig_14}
+\renewcommand\thefigure{13}
+\caption{effects of disaster realization - 2/2}
+\floatfoot{Notes: impulse responses are average responses starting from 100 points drawn from ergodic distribution as described in note to Table \ref{tab:cal}.}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\hspace*{-4cm}\includegraphics[width=1.5\textwidth,clip=true,trim=0 0 0 0]{../output/figures/fig_15}
+\renewcommand\thefigure{14}
+\caption{effects of global productivity shock - 1/2}
+\floatfoot{Notes: impulse responses are average responses starting from 100 points drawn from ergodic distribution as described in note to Table \ref{tab:cal}.}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\hspace*{-4cm}\includegraphics[width=1.5\textwidth,clip=true,trim=0 0 0 0]{../output/figures/fig_16}
+\renewcommand\thefigure{15}
+\caption{effects of global productivity shock - 2/2}
+\floatfoot{Notes: impulse responses are average responses starting from 100 points drawn from ergodic distribution as described in note to Table \ref{tab:cal}.}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\hspace*{-4cm}\includegraphics[width=1.5\textwidth,clip=true,trim=0 0 0 0]{../output/figures/fig_17}
+\renewcommand\thefigure{16}
+\caption{effects of relative productivity shock - 1/2}
+\floatfoot{Notes: impulse responses are average responses starting from 100 points drawn from ergodic distribution as described in note to Table \ref{tab:cal}.}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\hspace*{-4cm}\includegraphics[width=1.5\textwidth,clip=true,trim=0 0 0 0]{../output/figures/fig_18}
+\renewcommand\thefigure{17}
+\caption{effects of relative productivity shock - 2/2}
+\floatfoot{Notes: impulse responses are average responses starting from 100 points drawn from ergodic distribution as described in note to Table \ref{tab:cal}.}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\hspace*{-4cm}\includegraphics[width=1.5\textwidth,clip=true,trim=0 0 0 0]{../output/figures/fig_19}
+\renewcommand\thefigure{18}
+\caption{effects of safety shock - 1/2}
+\floatfoot{Notes: impulse responses are average responses starting from 100 points drawn from ergodic distribution as described in note to Table \ref{tab:cal}.}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\hspace*{-4cm}\includegraphics[width=1.5\textwidth,clip=true,trim=0 0 0 0]{../output/figures/fig_20}
+\renewcommand\thefigure{19}
+\caption{effects of safety shock - 2/2}
+\floatfoot{Notes: impulse responses are average responses starting from 100 points drawn from ergodic distribution as described in note to Table \ref{tab:cal}.}
+\end{figure}
+
+\section{Additional results}
+
+\begin{table}[H]
+\centering
+\bgroup
+\def\arraystretch{1.25}
+\begin{tabular}{l|cc} \hline
+\input{../output/tables/table_A1.tex}
+\end{tabular}
+\egroup
+\renewcommand\thetable{A1}
+\caption{Output decline}
+\end{table}
+
+\begin{table}[H]
+\centering
+\bgroup
+\def\arraystretch{1.25}
+\begin{tabular}{l|ccc} \hline
+\input{../output/tables/table_A2.tex}
+\end{tabular}
+\egroup
+\renewcommand\thetable{7}
+\caption{understanding U.S. external adjustment}
+\floatfoot{Notes: moments are computed as described in note to Table \ref{tab:cal}, but including disaster realizations.}
+\end{table}
+
+\end{document}
+
+

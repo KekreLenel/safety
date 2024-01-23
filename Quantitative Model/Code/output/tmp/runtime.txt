@@ -1,0 +1,9 @@
+RUNTIME 
+============================================ 
+SETUP     0 min 2 sec 
+PARAMS    0 min 10 sec 
+COMPILE   0 min 51 sec 
+RUN       112 min 24 sec 
+OUTPUT    7 min 23 sec 
+============================================ 
+TOTAL     120 min 50 sec 

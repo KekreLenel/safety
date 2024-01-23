@@ -1,0 +1,137 @@
+RUN 1 05-Jan-2024 17:15:24 
+
+PARAMETRIZATION
+-----------------------
+
+zeta                 1.6000
+bbeta_h              0.9887
+bbeta_f              0.9892
+gma_h               21.0000
+gma_f               23.8000
+ies_h                0.7500
+ies_f                0.7500
+chi                  0.7500
+sigma                1.5000
+varsigma_h           0.7846
+varsigma_f           0.1346
+l_target             1.0000
+delta                0.0250
+aalpha               0.3300
+chiX                 3.0000
+inv_share_h          0.3846
+varphi_w           400.0000
+vareps_w            20.0000
+phi_pi_h             1.5000
+phi_pi_f             1.5000
+phi_y_h              0.0000
+phi_y_f              0.0000
+tayl_ic_h            0.0049
+tayl_ic_f            0.0047
+rho_i                0.0000
+b_lmbd               0.2800
+bg_yss               0.1270
+sig_z                0.0016
+std_zf               0.0114
+rho_zf               0.9000
+disast_p            -5.6449
+disast_shock         0.1000
+p_rho                0.7500
+p_std                0.8326
+omg_mean            -6.0967
+omg_std              0.9949
+omg_shift           -0.0037
+omg_rho              0.4000
+corr_omg_dis         0.5000
+tht_trgt_h           0.3496
+theta_h_dev          0.1000
+k_dev_param          0.1000
+k_grid_adj           1.0250
+w_dev_param          0.0500
+w_grid_adj           1.0100
+ih_grid_mean         0.0050
+if_grid_mean         0.0050
+ih_grid_dev          0.0500
+if_grid_dev          0.0500
+mu_k                 3.0000
+mu_tht               3.0000
+mu_zf                3.0000
+mu_wh                3.0000
+mu_wf                3.0000
+mu_p                 3.0000
+mu_ih                0.0000
+mu_if                0.0000
+mu_omg               3.0000
+n_quad_z             3.0000
+n_quad_zf            3.0000
+n_quad_p             5.0000
+n_quad_omg           5.0000
+foreign_trading      1.0000
+run_bg               1.0000
+run_samp             1.0000
+
+CALIBRATED PARAMETERS
+-----------------------
+
+Labor disutility 1     0.7273
+Labor disutility 2     0.7131
+
+STEADY STATE VALUES
+-----------------------
+
+yh_ss         2.9681
+aggr_css     5.9970
+
+LOG NORMAL PROCESSES
+-----------------------
+
+log(omg) innovation std     0.9119
+log(omg) mean              -6.0967
+log(p)   innovation std     0.5507
+log(p)   mean              -5.6449
+
+LOG NORMAL PROCESSES INPUTS
+-----------------------
+
+mean p     0.0050
+std  p     0.0050
+mean wdg   0.0000
+std  wdg   0.0048
+skew wdg   6.1000
+
+
+WITHOUT DISASTER REALIZATION IN SAMPLE
+==================================================
+
+
+NUMERICAL VERIFICATION 
+-----------------------
+
+STATES MEAN AND STD 
+-----------------------
+        avrg.     grid_mean  std.  grid_dev
+k        71.97     72.57     0.82      7.26
+tht_h    35.07%    34.96%    2.31%    10.00%
+w_h       2.02      2.01     0.01      0.10
+w_f       3.23      3.25     0.03      0.16
+rho*ih    0.50%     0.50%    0.00%     5.00%
+rho*if    0.50%     0.50%    0.00%     5.00%
+omg      -0.04%     0.23%    0.34%     4.23%
+
+
+WITH DISASTER REALIZATION IN SAMPLE
+==================================================
+
+
+NUMERICAL VERIFICATION 
+-----------------------
+
+STATES MEAN AND STD 
+-----------------------
+        avrg.     grid_mean  std.  grid_dev
+k        71.96     72.57     0.81      7.26
+tht_h    33.77%    34.96%    2.21%    10.00%
+w_h       2.02      2.01     0.01      0.10
+w_f       3.23      3.25     0.03      0.16
+rho*ih    0.50%     0.50%    0.00%     5.00%
+rho*if    0.50%     0.50%    0.00%     5.00%
+omg      -0.04%     0.23%    0.34%     4.23%
